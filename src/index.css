@@ -130,3 +130,42 @@ footer {
   color: white;
   background-color: lightslategrey;
 }
+
+.new-article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.new-article input {
+  min-width: 300px;
+  height: 36px;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+.new-article textarea {
+  min-width: 300px;
+  height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+.new-article button {
+  min-width: 300px;
+  height: 54px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  background: radial-gradient(lightslategrey,transparent);
+  font-size: 20px;
+  cursor: pointer;
+}
