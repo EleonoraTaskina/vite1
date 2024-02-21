@@ -1,9 +1,8 @@
-import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ArticleCtx } from '../App';
+import { useSelector } from 'react-redux'
 
 export const Articles = () => {
-  const { articles } = useContext(ArticleCtx);
+  const articles = useSelector((state) => state.articlesStore.articles);
 
   const navigate = useNavigate();
 

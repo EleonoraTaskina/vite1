@@ -1,4 +1,3 @@
-import { createContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contacts";
@@ -10,24 +9,9 @@ import { MainLayout } from "./leyouts/MainLayout";
 import { LoginLayout } from "./leyouts/LoginLayout";
 import { Login } from "./pages/Login";
 
-
-export const ArticleCtx = createContext({});
-
 export const App = () => {
-  const [articles, setArticles] = useState([]);
-  
-
-  useEffect(() => {
-    fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
-      .then((data) => data.json())
-      .then((data) => {
-        setArticles(data.blogs);
-    });
-  },[]);
-
   return (
     <>
-      <ArticleCtx.Provider value={{articles, setArticles }}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -41,7 +25,6 @@ export const App = () => {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </ArticleCtx.Provider>
     </>
   );
 };

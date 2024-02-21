@@ -1,18 +1,21 @@
-import { useRef, useContext } from "react";
-import { ArticleCtx } from "../App";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { addNewArticle } from '../store/slices/articles'
 
 
 export const NewArticle = () => {
+  const articles = useSelector((state) => state.articlesStore.articles);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const { articles, setArticles } = useContext(ArticleCtx);
   const title = useRef(undefined);
   const description = useRef(undefined);
   const category = useRef(undefined);
 
   const createArticleManager = () => {
-    const newArticle = {
+    const NewArticle = {
       title: title.current.value,
       description: description.current.value,
       content_text: description.current.value,
@@ -22,7 +25,8 @@ export const NewArticle = () => {
       }.png`,
       id: articles.length + 1,
     }; 
-    setArticles((prev) => [...prev, newArticle]);
+    dispatch(addNewArticle(NewArticle));
+   
     navigate(`/articles/${articles.length + 1}`,{
       state: {
         title: title.current.value, 

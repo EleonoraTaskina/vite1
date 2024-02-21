@@ -11,12 +11,12 @@ export const SingleArticle = () => {
   return (
     <div className="one-article">
       <h3 onClick={toArticles} style={{ cursor: "pointer", color: "black" }}>
-        {"<"} Back 
+        {"<<"} Back 
       </h3>
       <h1>{state.title}</h1>
       <p>{state.content_text}</p>
       <h3 onClick={toArticles} style={{ cursor: "pointer", color: "black" }}>
-        {"<"} Back 
+        {"<<"} Back 
       </h3>
     </div>
   );
